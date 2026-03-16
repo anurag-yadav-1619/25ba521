@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function in JS</title>
+</head>
+<body>
+    <script>
+        //function:A JavaScript function is a reusable block of code that performs a specific task,
+        //  takes optional input (parameters/arguments), and can return a value.
+        function demo(){
+            console.log("hello js");
+        }
+        demo();//function calling
+        //with parameters
+        function demo1(text){
+            console.log("hello"+ text);
+        }
+        demo1("React");
+        //with default parameter
+        function cal(a,b=11){
+            console.log("addition of two number is" + (a+b));
+        }
+        cal(12);
+        demo();
+        demo1("React");  //iska order same rhega because it is a scynomous
+
+        //anonymous function:An anonymous function in JavaScript is a function that does not have an identifier (name)
+        let msg=function(){
+            console.log("hello advanced js");
+        };
+        msg();
+        //short code of above function i.e arrow function
+        let msg1=()=>console.log("hello function as an arrow");
+        msg1();
+       
+        //array function
+        let add=(a,b)=>{
+            console.log("first number is" + a);
+            console.log("second number is" + b);
+            console.log("addition of two number is" + (a+b));
+        }
+        add(4,5);
+
+        //IIFE function:An Immediately Invoked Function Expression (IIFE)"iffy," is a JavaScript function that runs as soon as it is defined.
+        (function(){
+            console.log("IIFE in JS");
+        })();
+        //iife using arrow
+        (()=>console.log("IIFE using arrow"))();
+
+        //callback function:In JavaScript, functions are executed, or "called" (invoked), in several ways. The most common method is using parentheses () after the function name,
+        //  but you can also use methods like call() to explicitly set the function's execution context (this value). 
+         function mul(callback){
+            var num1=5;
+            console.log("first value is " + num1);
+            var num2=6;
+            console.log("second value is " + num2);
+            var res=num1*num2;
+            callback(res);
+         }
+         function result(res){
+            console.log("multiplication is" + res);
+         }
+         mul(result);
+
+         //callback function usibng settimeout API
+         function msg2(){
+            console.log("hello call back");
+         }
+         function loading(){
+            document.writeln("loading...........")
+         };
+         setTimeout(msg2,2000);
+         loading();
+
+         //map , filter and reduce
+         let num=[3,4,5,6];
+         let finalresult=num.map(n=>n*2);
+         console.log(finalresult);
+
+         //filter method:The filter() method in JavaScript is a built-in Array method that creates a new array containing only the elements 
+         // from the original array that pass a specific condition implemented by a provided callback function. It does not modify the original array
+         
+         let finalresult1=num.filter(n=>(n>3));
+         console.log(finalresult1);
+
+         //reduce method: method executes a user-supplied "reducer" callback function on each element of an array, resulting in a single output value.
+         //  This final accumulated value can be a number, a string, an object, or an array, depending on how the function is implemented
+
+         let finalresult2=num.reduce((total,n)=>total+n);
+         console.log(finalresult2);
+
+    </script>
+</body>
+</html>
